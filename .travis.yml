@@ -1,0 +1,29 @@
+sudo: false
+language: ruby
+rvm:
+- 2.2.7
+- 2.3.4
+- 2.4.1
+- ruby-head
+gemfile:
+- gemfiles/slop_4.5.0.gemfile
+- gemfiles/slop_4.4.0.gemfile
+matrix:
+  allow_failures:
+  - rvm: ruby-head
+  fast_finish: true
+cache: bundler
+before_install: gem install bundler
+addons:
+  code_climate:
+    repo_token: ac8817e9eb34cc305959d1b0951195e3615ba8efb80d393c5c8b62baafaac369
+after_success:
+- bundle exec codeclimate-test-reporter
+deploy:
+  provider: rubygems
+  api_key:
+    secure: mZCsES86YL9bLz7X4IzZgGIZjEhfRDSe6v69gwB+HrotdJM2+jUY+MwTGv5KEfcAvlc8nB9EQ0NuX/9bZU77XlajCjdkhpg4+wVxJ9yzo2eoS9eYi6KycFqbw1zMTTOPjA9V9jHtxX+FsmASu/ci1aEQ0qtq6b08XnMdrmhZpwDqmf3XaIHMhPKQxTq0XlnMUZOo0EsuW7jXP6M3D+aEdC+lQi4ObBHXX0b2EZyzKwCCZWqhEMquOr6TL9xLIFWg87uV4DtLcmgGqczvCC0dmUAqS4ZTgkwC8IGec47cIQUTCX4NkirabsdBTFlCz0vd6VCoLZ8CT+9dHkCHJjkobcxeLwhsG0im0TzFh6jyok9gLvhSMHqWxfkTymBh/DHgRx1lXM61UPeIZYih0N/c152FXw0GgrWh6+ikGcNQRwpTEWpvNASqIxllsj8Y0S6SaC1Us5yR/WaV836aUFa2R9ip16oUOWM4LadxYi/IOWu6dzP2fHNXGQf8M1IjDczqzxVT5OBa/vj6m+yyd8jORZHPA2dXFi4pCnZgBr3ps/+HiYNbYEonvHODSORSDweeAXtvFBp8GUvkerGp2szROT9S6k2K8XtG8etA14R0jjBLqQRfoMpzNS9Sn/dQ+Z3z1SQ0yTLz1oVI0KG0QAv5QpRoos8sMEwkbZvY2vwbto4=
+  gem: portfinder
+  on:
+    tags: true
+    repo: at-shakil/portfinder

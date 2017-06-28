@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+  - "portfinder.gemspec"
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/UnneededCapitalW:
+  Enabled: false
+Style/MethodDefParentheses:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
+Metrics/ClassLength:
+  Max: 200
+Metrics/AbcSize:
+  Enabled: false
+# FIXME: Remove
+Performance/RedundantBlockCall:
+  Enabled: false

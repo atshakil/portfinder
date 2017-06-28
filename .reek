@@ -1,0 +1,26 @@
+# FIXME: Remove
+TooManyStatements:
+  max_statements: 20
+UtilityFunction:
+  enabled: false
+TooManyMethods:
+  max_methods: 20
+TooManyInstanceVariables:
+  max_instance_variables: 15
+NestedIterators:
+  max_allowed_nesting: 3
+LongParameterList:
+  max_params: 5
+ControlParameter:
+  enabled: false
+BooleanParameter:
+  enabled: false
+TooManyConstants:
+  max_constants: 20
+Attribute:
+  enabled: false
+DuplicateMethodCall:
+  enabled: false
+
+exclude_paths:
+  - test

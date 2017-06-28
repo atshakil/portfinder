@@ -1,5 +1,2 @@
-module Portfinder
-end
-
-require 'portfinder/scanner'
-
+require "portfinder/scanner"
+require "portfinder/version"
