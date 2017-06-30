@@ -1,3 +1,6 @@
+require "ipaddr"
+require "portfinder/constants"
+require "portfinder/parser"
 require "portfinder/pool"
 require "portfinder/scanner"
 require "portfinder/version"
