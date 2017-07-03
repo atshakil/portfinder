@@ -1,3 +1,4 @@
+require "socket"
 require "ipaddr"
 require "portfinder/constants"
 require "portfinder/error"
