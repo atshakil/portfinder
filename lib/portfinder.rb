@@ -1,5 +1,7 @@
 require "socket"
 require "ipaddr"
+require "json"
+require "yaml"
 require "portfinder/constants"
 require "portfinder/error"
 require "portfinder/parser"

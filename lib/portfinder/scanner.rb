@@ -63,6 +63,28 @@ module Portfinder
       pretty ? pretty_print(@result) : @result
     end
 
+    # Generates a report in the specified format from the scan result
+    def report_as format
+      case format
+      when :json
+        JSON.pretty_generate @result
+      when :yml
+        YAML.dump @result
+      else
+        raise ArgumentError, "Unknown format: #{format}"
+      end
+    end
+
+    # Generates a JSON report
+    def json_report
+      report_as :json
+    end
+
+    # Generates a YAML report
+    def yml_report
+      report_as :yml
+    end
+
     private
 
     def pretty_print result
