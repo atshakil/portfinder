@@ -1,0 +1,101 @@
+#!/usr/bin/env ruby
+require "slop"
+require "portfinder"
+require "portfinder/option"
+
+module Portfinder
+  # Portfinder command-line interface base class
+  class CLI
+    def self.start argv
+      new(argv).start
+    end
+
+    def initialize argv
+      @host, options = preprocess argv
+      @options, @help_str = prepare_options options, @host
+    end
+
+    def start
+      @host ? scan(@options) : help
+    end
+
+    def scan options
+      scanner =
+        Portfinder::Scanner.new(
+          options[:host], options[:port],
+          randomize: options[:randomize], threaded: true,
+          threads: options[:thread], thread_for: :port
+        )
+      scanner.scan
+      puts scanner.generate_result true
+    end
+
+    def help
+      puts @help_str
+    end
+
+    def version
+      puts "v#{Portfinder::VERSION}"
+      exit
+    end
+
+    private
+
+    def preprocess argv
+      default_options = ["-h", "--help"]
+      host = argv[0]
+      if default_options.include? host
+        host = nil
+        options = argv
+      else
+        options = argv[1..-1] || []
+      end
+
+      [host, options]
+    end
+
+    # rubocop:disable Style/MethodLength
+    def option_parser
+      opts = Slop::Options.new
+      opts.banner = "Commands:"
+      opts.separator "    #{$PROGRAM_NAME}         # Display available options"
+      opts.separator(
+        "    #{$PROGRAM_NAME} <host>  # Scans host(s) for provided options"
+      )
+      opts.separator ""
+      opts.separator "Options:"
+      opts.port(
+        "-p", "--port", "# Specify a single port, range or selections",
+        default: 1..1024
+      )
+      opts.int "-t", "--thread", "# Specify threads to spawn", default: 10
+      opts.bool "-r", "--randomize", "# Randomize port scan order"
+      opts.out(
+        "-o", "--out", "# Dump scan result to the specified file",
+        default: "#{@host ? @host.gsub(%r{[./]}, '_') : 'export'}.json"
+      )
+      opts.bool "-v", "--verbose", "# More information during scan"
+      opts.bool "-h", "--help", "# Describe available commands and options"
+
+      Slop::Parser.new opts
+    end
+
+    # Refactor
+    def prepare_options options, host
+      version_opt = ["-V", "--version"]
+      version if version_opt.include?(host)
+
+      parsed = option_parser.parse options
+      parsed_hash = parsed.to_h
+      if host && /^[^-]+/ =~ host
+        parsed_hash.merge!(
+          Slop.parse ["--host", host] { |opt| opt.host "--host" }
+        )
+      end
+
+      [parsed_hash, parsed.to_s]
+    end
+  end
+end
+
+Portfinder::CLI.start ARGV
