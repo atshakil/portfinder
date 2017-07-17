@@ -58,9 +58,9 @@ module Portfinder
     def option_parser
       opts = Slop::Options.new
       opts.banner = "Commands:"
-      opts.separator "    #{$PROGRAM_NAME}         # Display available options"
+      opts.separator "    portfinder         # Display available options"
       opts.separator(
-        "    #{$PROGRAM_NAME} <host>  # Scans host(s) for provided options"
+        "    portfinder <host>  # Scans host(s) for provided options"
       )
       opts.separator ""
       opts.separator "Options:"

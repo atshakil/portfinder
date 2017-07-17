@@ -26,7 +26,8 @@ gem install portfinder
 ### As a CLI tool
 
 ```sh
-portfinder <host> [--port=PORT] [--thread=THREAD] [--randomize] [--out=OUT_FILE] [--verbose]
+portfinder <host> [--port=PORT] [--thread=THREAD] [--randomize]
+  [--out=OUT_FILE] [--verbose]
 ```
 
 `portfinder` can also be invoked using it's aliased form `pf`.
@@ -102,7 +103,7 @@ json_stream = scanner.json_report
 
 It is possible to use the API in different modes,
 
-*Mode 1: Blocking mode with monitoring*
+#### Mode 1: Blocking mode with monitoring
 
 ```ruby
 scanner =
@@ -129,7 +130,7 @@ file.write scanner.report_as format.to_sym
 file.close
 ```
 
-*Mode 2: Partial blocking (join during result invocation)*
+#### Mode 2: Partial blocking (join during result invocation)
 
 ```ruby
 scanner = Portfinder::Scanner.new("192.168.0.101", 1..65535)
@@ -141,8 +142,9 @@ scanner.scan synchronus = false
 puts "\nScan complete!\n\nResult: #{scanner.generate_result}"
 ```
 
-*Mode 3 (GUI): Non-blocking (callback invocation upon completion)
-(NOTE: Parent thread must be alive to receive callback)*
+#### Mode 3 (GUI): Non-blocking (callback invocation upon completion)
+
+(NOTE: Parent thread must be alive to receive callback)
 
 ```ruby
 scanner = Portfinder::Scanner.new("192.168.0.101", 1..65535)
