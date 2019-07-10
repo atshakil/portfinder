@@ -1,12 +1,11 @@
 # Portfinder
 
-[![Build Status](https://travis-ci.org/at-shakil/portfinder.svg?branch=master)](https://travis-ci.org/at-shakil/portfinder)
+[![Build Status](https://travis-ci.org/atshakil/portfinder.svg?branch=master)](https://travis-ci.org/atshakil/portfinder)
 [![Gem Version](https://badge.fury.io/rb/portfinder.svg)](https://badge.fury.io/rb/portfinder)
-[![Dependency Status](https://gemnasium.com/badges/github.com/at-shakil/portfinder.svg)](https://gemnasium.com/github.com/at-shakil/portfinder)
-[![Test Coverage](https://codeclimate.com/github/at-shakil/portfinder/badges/coverage.svg)](https://codeclimate.com/github/at-shakil/portfinder/coverage)
-[![Inline docs](http://inch-ci.org/github/at-shakil/portfinder.svg?branch=master)](http://inch-ci.org/github/at-shakil/portfinder)
-[![Code Climate](https://codeclimate.com/github/at-shakil/portfinder/badges/gpa.svg)](https://codeclimate.com/github/at-shakil/portfinder)
-[![Issue Count](https://codeclimate.com/github/at-shakil/portfinder/badges/issue_count.svg)](https://codeclimate.com/github/at-shakil/portfinder)
+[![Test Coverage](https://codeclimate.com/github/atshakil/portfinder/badges/coverage.svg)](https://codeclimate.com/github/atshakil/portfinder/coverage)
+[![Inline docs](http://inch-ci.org/github/atshakil/portfinder.svg?branch=master)](http://inch-ci.org/github/atshakil/portfinder)
+[![Code Climate](https://codeclimate.com/github/atshakil/portfinder/badges/gpa.svg)](https://codeclimate.com/github/atshakil/portfinder)
+[![Issue Count](https://codeclimate.com/github/atshakil/portfinder/badges/issue_count.svg)](https://codeclimate.com/github/atshakil/portfinder)
 
 ## Summary
 

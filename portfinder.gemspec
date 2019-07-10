@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Portfinder is a ruby based port scanner with features like \
 network/CIDR scanning, port randomization, hostname discovery and banner \
 grabbing."
-  s.homepage = "https://github.com/at-shakil/portfinder"
+  s.homepage = "https://github.com/atshakil/portfinder"
   s.license = "MIT"
 
   s.files = `git ls-files -z`.split("\x0").reject do |f|
@@ -34,11 +34,11 @@ grabbing."
 
   s.add_dependency "slop", "~> 4.4"
 
-  s.add_development_dependency "bundler", "~> 1.15"
-  s.add_development_dependency "rake", "~> 12.0"
-  s.add_development_dependency "minitest", "~> 5.0"
-  s.add_development_dependency "simplecov", "~> 0.13"
   s.add_development_dependency "appraisal", "~> 2.2"
+  s.add_development_dependency "bundler", "~> 1.15"
+  s.add_development_dependency "minitest", "~> 5.0"
+  s.add_development_dependency "rake", "~> 12.0"
+  s.add_development_dependency "simplecov", "~> 0.13"
 
   if ENV["TRAVIS"]
     s.add_development_dependency "codeclimate-test-reporter", "~> 1.0.8"

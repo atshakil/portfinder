@@ -13,10 +13,10 @@ matrix:
   - rvm: ruby-head
   fast_finish: true
 cache: bundler
-before_install: gem install bundler
+before_install: gem install bundler -v 1.17.3
 addons:
   code_climate:
-    repo_token: ac8817e9eb34cc305959d1b0951195e3615ba8efb80d393c5c8b62baafaac369
+    repo_token: e127cd7332c94c7ffeb8a6a872a66d50f7e5dbff79beb22078510e65ada79eed
 after_success:
 - bundle exec codeclimate-test-reporter
 deploy:
@@ -26,4 +26,4 @@ deploy:
   gem: portfinder
   on:
     tags: true
-    repo: at-shakil/portfinder
+    repo: atshakil/portfinder
